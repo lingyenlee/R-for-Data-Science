@@ -8,4 +8,14 @@ list.files("./data")
 dateDownloaded <- date()
 dateDownloaded
 
+library(dslabs)
+data("gapminder")
+library(ggplot2)
+library(dplyr)
+
+tab <- filter(gapminder, year <= 2010 & year >= 1960  & (country == "Vietnam" | country == "United States"))
+tab
+
+p <- ggplot(tab, aes(year, life_expectancy, color=country)) + geom_line()
+p
 
